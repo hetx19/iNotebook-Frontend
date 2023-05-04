@@ -1,20 +1,29 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import { NoteProvider } from "./context/noteContext";
+import { AlertProvider } from "./context/AlertContext";
+import AddNote from "./components/AddNote";
+import PageNotFound from "./components/PageNotFound";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NoteProvider>
+        <AlertProvider>
+          <Routes>
+            <Route path="/" index element={<Home />} />
+            <Route path="/new" index element={<AddNote />} />
+            <Route path="/about" index element={<About />} />
+            <Route path="/register" index element={<Register />} />
+            <Route path="/login" index element={<Login />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </AlertProvider>
+      </NoteProvider>
+    </>
   );
 }
 
