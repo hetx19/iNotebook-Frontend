@@ -20,6 +20,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
 function Login(props) {
+  // eslint-disable-next-line
   const location = useLocation();
   const navigate = useNavigate();
   const { showAlert } = useContext(AlertContext);
